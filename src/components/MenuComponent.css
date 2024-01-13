@@ -1,0 +1,11 @@
+.menu-label {
+  margin-left: 1rem;
+}
+
+.item-container {
+  overflow: auto;
+}
+
+nav#menu-bar {
+  position: fixed;
+}
