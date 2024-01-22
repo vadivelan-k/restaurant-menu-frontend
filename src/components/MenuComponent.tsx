@@ -16,11 +16,13 @@ const GET_MENU_DATA = gql`
       sections {
         id
         label
+        disabled
         items {
           id
           label
           description
           price
+          disabled
           modifierGroups {
             label
             modifiers {
@@ -38,7 +40,7 @@ const GET_MENU_DATA = gql`
 `;
 
 const renderMenu = () => {
-  const { loading, error, data } = useQuery(GET_MENU_DATA, { variables: { id: 38 }});
+  const { loading, error, data } = useQuery(GET_MENU_DATA, { variables: { id: 40 }});
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;

@@ -1,0 +1,21 @@
+.section-container {
+  display: block !important;
+}
+
+.disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+.price-container {
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+  column-gap: 4rem;
+}
+
+.button-container {
+  margin-right: 0;
+  margin-left: auto;
+  height: 37px;
+}

@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import classNames from 'classnames';
 import ModalComponent from './ModalComponent';
+import samplePizza from '../assets/pizza.jpg';
 import './SectionItem.css';
 
 interface ItemProps {
@@ -8,6 +10,7 @@ interface ItemProps {
     label: String;
     description: String;
     price: Number;
+    disabled: Boolean;
   }
 }
 
@@ -20,27 +23,46 @@ const SectionItem = ({ item }: ItemProps) => {
     setDisplay(true);
   }
 
+  const formatPrice = (price: any) => {
+    return parseFloat(price).toFixed(2);
+  }
+
+  const buttonClass = classNames('add-button', { 'disabled': item.disabled });
+  const buttonText = item.disabled ? 'Sold Out' : 'Add';
+
   return (
     <>
       <div className="col" key={`item-${item.id}`}>
-        <div className="card mb-4 rounded-3 shadow-sm">
-          <div className="card-header py-3">
-            <h4 className="my-0 fw-normal">{item.label}</h4>
-          </div>
+        <div className="card mb-4 rounded-3 shadow-lg">
           <div className="card-body" onClick={handleShow}>
+            <div>
+              <img className='product-image' src={samplePizza} />
+            </div>
+            <h4 className="item-name">{item.label}</h4>
             <p className="card-text">{item.description}</p>
-            <span className='price'>Price {`$${item.price}`}</span>
-            { display }
-            <button type="button" className="w-50 btn btn-sm btn-outline-primary">Add</button>
+            <div className="flex flex-col price-container">
+              <div className="price">
+                {`$${formatPrice(item.price)}`}
+              </div>
+              <div className="button-container">
+                <button className={buttonClass} type="button" data-testid="button">
+                  { buttonText }
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
       <ModalComponent
         title={item.label}
         body={item.description}
         show={display}
         handleClose={handleClose}
+        buttonText={buttonText}
+        buttonClass={buttonClass}
       />
+      
     </>
   )
 }

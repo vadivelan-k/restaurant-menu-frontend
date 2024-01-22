@@ -1,3 +1,51 @@
+.modal-content {
+  flex-flow: nowrap !important;
+}
+
+.modal-body {
+  min-height: 275px;
+  max-height: 275px;
+}
+
+.card {
+  border: none !important;
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+.product-image {
+  height: 150px;
+  width: 100%;
+}
+
+.item-name {
+  text-align: left;
+  padding-left: 0.5rem;
+  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+}
+
+.card-text {
+  max-height: 150px;
+  min-height: 150px;
+  overflow: hidden;
+  padding: 0 0.5rem 0 0.5rem;
+  text-align: left;
+  font-size: 14px;
+}
+
+.price-container {
+  padding: 1rem;
+}
+
 .price {
   float: left;
+}
+
+.add-button {
+  background-color: #fa5553 !important;
+  padding-top: 5px !important;
+  font-size: 11px;
 }

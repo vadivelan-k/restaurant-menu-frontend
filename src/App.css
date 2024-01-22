@@ -1,5 +1,6 @@
 #root {
-  /* display: flex; */
+  max-width: 1232px;
+  margin: auto;
   width: 100%;
   padding: 2rem;
 }
